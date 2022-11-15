@@ -1,9 +1,10 @@
-
-
+import Header1 from "./Components/Header/Header1";
+import Header2 from "./Components/Header/Header2";
+import './index.css'
 function App() {
   return (
-    <div>
-
+    <div >
+      <Header2 />
     </div>
   );
 }
