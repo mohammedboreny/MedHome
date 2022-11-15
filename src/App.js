@@ -4,7 +4,7 @@ import Header2 from "./Components/Header/Header2";
 import Hero from "./Components/Hero/Hero";
 import PlaceHolders from "./Components/PlaceHolders/PlaceHolders";
 import Testo from "./Components/Testo/Testo";
-import CTA from "./CTA/CTA";
+import CTA from "./Components/CTA/CTA";
 import './index.css'
 function App() {
   return (
