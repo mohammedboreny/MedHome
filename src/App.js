@@ -1,21 +1,15 @@
-import Footer1 from "./Components/Footer/Footer1";
-import Header1 from "./Components/Header/Header1";
-import Header2 from "./Components/Header/Header2";
-import Hero from "./Components/Hero/Hero";
-import PlaceHolders from "./Components/PlaceHolders/PlaceHolders";
-import Testo from "./Components/Testo/Testo";
-import CTA from "./Components/CTA/CTA";
+
 import './index.css'
+import About from './UserPages/About/About';
+import Home from './UserPages/Home/Home';
+import ServicesPage from './UserPages/Services/ServicesPage';
 function App() {
   return (
-    <div  >
-      <Header1 />
-      <Hero />
-      <Testo />
-     
-      <CTA />
-      <PlaceHolders />
-      <Footer1/>
+    <div >
+      {/* <Home/> */}
+      {/* <ServicesPage/> */}
+      <About/>
+
     </div>
   );
 }
