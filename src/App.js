@@ -1,8 +1,10 @@
 
+import SignUpForm from './Components/AuthForms/SignUpForm';
 import './index.css'
 import About from './UserPages/About/About';
 import ContactUs from './UserPages/ContactUs/ContactUs';
 import Home from './UserPages/Home/Home';
+import Login from './UserPages/Login/Login';
 import ServicesPage from './UserPages/Services/ServicesPage';
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
       {/* <Home/> */}
       {/* <ServicesPage/> */}
       {/* <About/> */}
-      <ContactUs/>
+      {/* <ContactUs/> */}
+      {/* <Login/> */}
+       <SignUpForm/>
 
     </div>
   );
