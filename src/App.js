@@ -1,6 +1,7 @@
 
 import './index.css'
 import About from './UserPages/About/About';
+import ContactUs from './UserPages/ContactUs/ContactUs';
 import Home from './UserPages/Home/Home';
 import ServicesPage from './UserPages/Services/ServicesPage';
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <div >
       {/* <Home/> */}
       {/* <ServicesPage/> */}
-      <About/>
+      {/* <About/> */}
+      <ContactUs/>
 
     </div>
   );
