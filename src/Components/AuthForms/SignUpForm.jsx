@@ -57,7 +57,7 @@ const SignUpForm = () => {
                     />
                 </Form.Field>
                 {errors.password && <p className='text-danger'>Password should contain one Capital Letter, one Small Letter and has length between 6 and 15</p>}
-                <Button type='submit'>Submit</Button>
+                <Button type='submit' className='text-white bg-primary'>Submit</Button>
             </Form>
                 </Col>
             </Row>

@@ -14,7 +14,7 @@ function App() {
       {/* <About/> */}
       {/* <ContactUs/> */}
       {/* <Login/> */}
-       <SignUpForm/>
+       {/* <Login/> */}
 
     </div>
   );
