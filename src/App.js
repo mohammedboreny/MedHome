@@ -1,4 +1,5 @@
 
+import PlaceMap from './Components/AskForService/PlaceMap';
 import SignUpForm from './Components/AuthForms/SignUpForm';
 import './index.css'
 import About from './UserPages/About/About';
@@ -7,6 +8,7 @@ import Home from './UserPages/Home/Home';
 import Login from './UserPages/Login/Login';
 import ServicesPage from './UserPages/Services/ServicesPage';
 function App() {
+  
   return (
     <div >
       {/* <Home/> */}
@@ -14,7 +16,8 @@ function App() {
       {/* <About/> */}
       {/* <ContactUs/> */}
       {/* <Login/> */}
-       {/* <Login/> */}
+      {/* <Login/> */}
+      <PlaceMap/>
 
     </div>
   );
