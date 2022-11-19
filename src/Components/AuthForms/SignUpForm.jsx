@@ -1,5 +1,5 @@
 
-import { Col, Row } from 'react-bootstrap';
+import { Alert, Col, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { Form, Button } from 'semantic-ui-react';
 import { useAuth } from '../../CurrentUserContext';
@@ -10,16 +10,35 @@ const SignUpForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        login();
+        let Storage2 = JSON.parse(localStorage.getItem(data.email));
+
+console.log(Storage2);
+        if (Storage2.email!==data.email) {
+            localStorage.setItem(data.email, JSON.stringify(Storage2));
+            login() 
+        }
+        else {
+            alert("USer Has Already Registered ")
+        }
+
         return login ? (<>
             <Navigate to="/" /> </>) : (
             <p> somthing goes wrong </p>)
     }
+
+
+
     return (
         <div>
             <Row className='justify-content-center'>
                 <Col lg={4}  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Form.Field>
+                            <input type="hidden"
+                                value=''
+                                {...register("id", { required: false })}
+                            />
+                        </Form.Field>
                         <Form.Field>
                             <label>First Name</label>
                             <input

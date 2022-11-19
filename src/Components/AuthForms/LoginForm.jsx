@@ -7,7 +7,14 @@ import { Navigate } from 'react-router-dom';
 const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
-      console.log(data);
+      let Storage2 = JSON.parse(localStorage.getItem('Registeration'));
+      Storage2.map((value, index, array) => {
+     
+        console.log(array.email ," array",array.password);
+    })
+      var isExist = false;
+      var isPass = false;
+   
       console.log(login);
       login ();
     }
