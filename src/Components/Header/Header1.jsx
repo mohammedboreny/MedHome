@@ -57,32 +57,16 @@ const Header1 = () => {
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/" className="text-primary fs-4" >Home </NavLink>
+                  
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
-                    } to="/services" className="text-primary fs-4" >Services </NavLink>
-                    <NavLink style={({ isActive }) =>
-                      isActive ? activeStyle : undefined
-                    } to="/about" className="text-primary fs-4" >About </NavLink>
+                    } to="/ordernow" className="text-primary fs-4" >Order Now </NavLink>
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/contactUS" className="text-primary fs-4" >Contact </NavLink>
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/ServicePro" className="text-primary fs-4" >Become A provider </NavLink>
-
-                    {/* {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-primary' : 'text-gray-300 hover:bg-gray-700 hover:text-primary',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))} */}
                   </div>
                 </div>
               </div>

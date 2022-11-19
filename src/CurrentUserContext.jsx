@@ -11,11 +11,11 @@ const AuthContext = createContext({});
 
 const AuthProvider = (props) => {
 const [loggedIn, setLoggedIn] = useState(false)
-    useEffect(() => {
+    // useEffect(() => {
       
 
 
-    }, [])
+    // }, [])
     
     const login =()=>{
         setLoggedIn(true)

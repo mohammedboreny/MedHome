@@ -12,7 +12,8 @@ const Login = () => {
           <Navigate  to ="/"/>
     </div>
   ) : (
-    <div >
+      <div >
+        
     <LoginForm/>
 </div>
   )

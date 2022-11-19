@@ -10,14 +10,14 @@ const Home = () => {
   const {login,loggedIn}=useAuth()
   return loggedIn? (
     <div>
-   
-    </div>
-  ) : (
-      <div>
-           <Testo />
+            <Testo />
       <CTA />
       <PlaceHolders />
       <Footer1/>
+    </div>
+  ) : (
+      <div>
+  Not Found
       </div>
   )
 }
