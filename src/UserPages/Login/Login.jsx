@@ -1,11 +1,20 @@
-import React from 'react'
-import LoginForm from '../../Components/AuthForms/LoginForm'
+import React from 'react';
+import LoginForm from '../../Components/AuthForms/LoginForm';
+import { useAuth } from '../../CurrentUserContext';
+import { Navigate  } from "react-router-dom";
 
 const Login = () => {
-  return (
+  const { loggedIn } = useAuth()
+  
+  return loggedIn? (
+
       <div >
-          <LoginForm/>
+          <Navigate  to ="/"/>
     </div>
+  ) : (
+    <div >
+    <LoginForm/>
+</div>
   )
 }
 

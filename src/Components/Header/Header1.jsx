@@ -2,7 +2,8 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import {NavLink} from 'react-router-dom'
+import { useAuth } from '../../CurrentUserContext'
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
@@ -12,10 +13,17 @@ const navigation = [
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-  }
+}
+  
 const Header1 = () => {
+  const { logout } = useAuth();
+  let activeStyle = {
+    textDecoration: "underline",
+  };
+
+  let activeClassName = "underline";
   return (
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" className="bg-white-800">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-10x1 px-2 sm:px-6 lg:px-8">
@@ -45,20 +53,36 @@ const Header1 = () => {
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                <div className="flex space-x-4">
+                    <NavLink style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    } to="/" className="text-primary fs-4" >Home </NavLink>
+                    <NavLink style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    } to="/services" className="text-primary fs-4" >Services </NavLink>
+                    <NavLink style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    } to="/about" className="text-primary fs-4" >About </NavLink>
+                    <NavLink style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    } to="/contactUS" className="text-primary fs-4" >Contact </NavLink>
+                    <NavLink style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    } to="/ServicePro" className="text-primary fs-4" >Become A provider </NavLink>
+
+                    {/* {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-gray-900 text-primary' : 'text-gray-300 hover:bg-gray-700 hover:text-primary',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
                       </a>
-                    ))}
+                    ))} */}
                   </div>
                 </div>
               </div>
@@ -115,12 +139,13 @@ const Header1 = () => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <NavLink
+                            onClick={logout}
+                            to ="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </a>
+                          </NavLink>
                         )}
                       </Menu.Item>
                     </Menu.Items>

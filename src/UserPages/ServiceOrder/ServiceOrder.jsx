@@ -1,5 +1,9 @@
 import React from 'react'
-
+import PlaceMap from '../../Components/AskForService/PlaceMap';
+import { useForm } from "react-hook-form";
+import { Form, Button } from 'semantic-ui-react';
+import {Col,Row} from 'react-bootstrap';
+import { Container } from '@material-ui/core';
 const ServiceOrder = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
@@ -7,7 +11,7 @@ const ServiceOrder = () => {
     }
   return (
     <div>
-      
+    <Container className='pt-10'>
       <Row className='justify-content-center'>
       <Col lg={4}  >
          <Form onSubmit={handleSubmit(onSubmit)}>
@@ -38,8 +42,12 @@ const ServiceOrder = () => {
                 {errors.password && <p className='text-danger'>Password should contain one Capital Letter, one Small Letter and has length between 6 and 15</p>}
             <Button type='submit' className='text-white bg-primary'>Submit</Button>
             </Form>
-        </Col>
-        </Row>
+              </Col>
+              <Col>
+                  <PlaceMap />
+                  </Col>
+          </Row>
+          </Container>
 
     </div>
   )

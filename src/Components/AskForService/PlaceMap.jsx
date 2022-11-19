@@ -6,13 +6,14 @@ export default function PlaceMap() {
   
   console.log(process.env.REACT_APP_MAPS_API);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_MAPS_API,
+    // googleMapsApiKey: process.env.REACT_APP_MAPS_API,
 libraries:['places']
   });
   if (!isLoaded) return <div>Loading,Please Check your connection</div>;
   return (
-    <div>
+    <div >
       <Map />
+
     </div>
   )
 }
