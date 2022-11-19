@@ -1,0 +1,23 @@
+# Orange Coding Academy Project (MedHome)
+
+# Summery 
+
+*This is a Front-end Web App Project created with react js*
+## idea
+
+_The WebApp idea is to give visitors the ability to ask for a home maintenance through the web app, And the user could be a service Provider if it would _
+
+## Technologies used 
+
+- HTML
+- CSS
+- Java Script
+- React frame Work
+
+
+## Libraries used
+
+- Google Geolocation 
+- Tailwind
+- Material UI
+- React-Router-Dom
