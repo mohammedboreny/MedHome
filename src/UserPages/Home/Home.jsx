@@ -7,19 +7,14 @@ import PlaceHolders from "../../Components/PlaceHolders/PlaceHolders";
 import { useAuth } from '../../CurrentUserContext';
 
 const Home = () => {
-  const {login,loggedIn}=useAuth()
-  return loggedIn? (
+  const { login, loggedIn } = useAuth()
+  return (
     <div>
-            <Testo />
+      <Testo />
       <CTA />
       <PlaceHolders />
-      <Footer1/>
+      <Footer1 />
     </div>
-  ) : (
-      <div>
-  Not Found
-      </div>
   )
 }
-
 export default Home
