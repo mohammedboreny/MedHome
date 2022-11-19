@@ -5,7 +5,7 @@
 *This is a Front-end Web App Project created with react js*
 ## idea
 
-_The WebApp idea is to give visitors the ability to ask for a home maintenance through the web app, And the user could be a service Provider if it would _
+_The WebApp idea is to give visitors the ability to ask for a home maintenance through the web app, And the user could be a service Provider if it would_
 
 ## Technologies used 
 
