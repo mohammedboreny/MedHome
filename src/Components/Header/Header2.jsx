@@ -20,7 +20,7 @@ const Header2 = () => {
 
   let activeClassName = "underline";
   return (
-      <Disclosure as="nav" className="pl-3 bg-primary-800">
+      <Disclosure as="nav" className=" ml-4 bg-primary-800">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-10x1 px-2 sm:px-6 lg:px-8">
@@ -57,9 +57,9 @@ const Header2 = () => {
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/services" className="text-primary fs-4" >Services </NavLink>
-                    <NavLink style={({ isActive }) =>
+                  <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
-                    } to="/about" className="text-primary fs-4" >About </NavLink>
+                    } to="/ordernow" className="text-primary fs-4" >Order Now </NavLink>
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/contactUS" className="text-primary fs-4" >Contact </NavLink>

@@ -9,7 +9,7 @@ const Hero = () => {
         <div>
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              <span className="text-gray-600">
+              <span className="text-gray-600 fs-3">
                 MedHome
                 <a href="#" className="font-semibold text-indigo-600">
                 
@@ -34,15 +34,7 @@ const Hero = () => {
                   &rarr;
                 </span>
                 </Link>
-                <Link
-                to="./login"
-                className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
-              >
-                Sign In
-                <span className="text-indigo-200" aria-hidden="true">
-                  &rarr;
-                </span>
-              </Link>
+           
        
             </div>
           </div>

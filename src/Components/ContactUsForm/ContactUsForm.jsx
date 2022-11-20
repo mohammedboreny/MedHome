@@ -15,7 +15,7 @@ const ContactUsForm = () => {
     const handle = (e) => {
         e.preventDefault();
         const contactData = [fName, email, lastName, textArea];
-        localStorage.setItem("contactData", JSON.stringify(contactData));
+        localStorage.setItem("contactData", JSON.stringify(fName));
         
         console.log("true");
 
@@ -40,7 +40,7 @@ const ContactUsForm = () => {
                 <Row>
                     <Col sm={12} lg={6}>
                         <img
-                            src="https://images.pexels.com/photos/12192456/pexels-photo-12192456.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" />
+                            src="https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                     </Col>
                     <Col sm={12} lg={6}>
                         <Form onSubmit={(e)=>handle(e)}>

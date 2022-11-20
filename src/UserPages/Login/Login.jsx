@@ -14,7 +14,8 @@ const Login = () => {
   ) : (
       <div >
         
-    <LoginForm/>
+        <LoginForm />
+        
 </div>
   )
 }

@@ -12,10 +12,10 @@ const SignUpForm = () => {
         console.log(data);
         let Storage2 = JSON.parse(localStorage.getItem(data.email));
 
-        console.log(Storage2);
-        if (Storage2 == null) {
+console.log(Storage2);
+        if (Storage2==null) {
             localStorage.setItem(data.email, JSON.stringify(data));
-            login()
+            login() 
         }
         else {
             alert("USer Has Already Registered ")

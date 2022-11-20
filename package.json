@@ -9,6 +9,7 @@
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@material-ui/core": "^5.0.0-beta.5",
+    "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
     "@react-google-maps/api": "^2.17.0",

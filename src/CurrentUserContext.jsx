@@ -10,13 +10,21 @@ const AuthContext = createContext({});
 
 
 const AuthProvider = (props) => {
-const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [direction, SetDirection] = useState({});
+    const [id,setid]=useState('')
     // useEffect(() => {
       
 
 
     // }, [])
-    
+    const directions = (val) => {
+        SetDirection(val);
+
+    }
+    const idSet = (val)=>{
+        setid(val);
+    }
     const login =()=>{
         setLoggedIn(true)
     }
@@ -26,7 +34,7 @@ const [loggedIn, setLoggedIn] = useState(false)
 
     }
     const authContextValue = {
-login,loggedIn,logout
+login,loggedIn,logout,direction,directions,idSet,id
 
     };
     return <AuthContext.Provider value={authContextValue} {...props} ></AuthContext.Provider >

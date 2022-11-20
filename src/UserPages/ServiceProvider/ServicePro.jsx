@@ -6,7 +6,8 @@ import JoinUSForm from '../../Components/JoinUsForm/JoinUSForm'
 
 const ServicePro = () => {
   return (
-    <div>
+    <div className='container pt-2'>
+      <h1 className='text-center'> Join US Now</h1>
       <JoinUSForm />
       <Footer1/>
     </div>

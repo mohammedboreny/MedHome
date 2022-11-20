@@ -14,13 +14,19 @@ const LoginForm = () => {
         }
         else {
             console.log(Storage2);
+            idSet(Storage2.email)
             login();
+
         }
     }
-    const { login } = useAuth();
-    console.log(login);
-    return login ? (
+    const { loggedin,login,idSet } = useAuth();
+    console.log(loggedin);
+    return loggedin ? (
         <div>
+        <Navigate to="/" />
+    </div >):(
+            <div>
+            <h1 className='text-center'>Log in</h1>
             <Row className='justify-content-center'>
                 <Col lg={4}  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -54,10 +60,8 @@ const LoginForm = () => {
                 </Col>
             </Row>
         </div>
-    ) :
-        <div>
-            <Navigate to="/" />
-        </div >
+    ) 
+      
 }
 
 export default LoginForm

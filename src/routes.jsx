@@ -18,19 +18,22 @@ import Header1 from './Components/Header/Header1'
 import Header2 from './Components/Header/Header2';
 import Hero from './Components/Hero/Hero';
 import ServiceOrder from './UserPages/ServiceOrder/ServiceOrder'
+import Profile from './UserPages/Profile/Profile';
 
 export const AuthenticatedRoutes = () => {
       
     return (
         <>
         <Header1 />
-        <Hero/>
+   
         <Routes>
+        <Route exact path='/profile' element={<Profile />}></Route>
+
         <Route exact path='/' element={<Home />}></Route>
         <Route exact path='/about' element={< About />}></Route >
         <Route exact path='/contactUs' element={<  ContactUs />}></Route>
           <Route exact path='/ServicePro' element={< ServicePro />}></Route>
-          <Route exact path='/ordernow' element={ <ServiceOrder/>}></Route>
+          <Route exact path='/ordernow'    element={ <ServiceOrder/>}></Route>
 
             </Routes >
             </>
@@ -43,7 +46,8 @@ export const UnauthenticatedRoutes = () => {
         <div >
         <Header2 />
         <Hero />
-          <Routes>
+        <Routes>
+        <Route exact path='/ordernow' element={ <ServiceOrder/>}></Route>
             <Route exact path='/' element={<Home />}></Route>
             <Route exact path='/services' element={< Services />}></Route>
             <Route exact path='/about' element={< About />}></Route >
