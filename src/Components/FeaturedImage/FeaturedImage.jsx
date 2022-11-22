@@ -41,6 +41,7 @@ const FeaturedImage = () => {
                           </li>
                       </ul>
                   </Col></Row>
+              
     </Container>
     </div>
   )

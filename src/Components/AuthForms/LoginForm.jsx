@@ -1,11 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { Form, Button } from 'semantic-ui-react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row ,Container} from 'react-bootstrap';
+import ByGoogle from './ByGoogle';
 import { useAuth } from '../../CurrentUserContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate,useNavigate  } from 'react-router-dom';
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const nave = useNavigate();
     const onSubmit = (data) => {
         let Storage2 = JSON.parse(localStorage.getItem(data.email));
 
@@ -16,6 +18,7 @@ const LoginForm = () => {
             console.log(Storage2);
             idSet(Storage2.email)
             login();
+            nave('/');
 
         }
     }
@@ -26,7 +29,8 @@ const LoginForm = () => {
         <Navigate to="/" />
     </div >):(
             <div>
-            <h1 className='text-center'>Log in</h1>
+                <h1 className='text-center'>Log in</h1>
+                <Container>
             <Row className='justify-content-center'>
                 <Col lg={4}  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -55,10 +59,20 @@ const LoginForm = () => {
                             />
                         </Form.Field>
                         {errors.password && <p className='text-danger'>Password should contain one Capital Letter, one Small Letter and has length between 6 and 15</p>}
-                        <Button type='submit' className='text-white bg-primary'>Submit</Button>
+                                <Button type='submit' className='text-white bg-primary'>Submit</Button>
+                                
                     </Form>
-                </Col>
-            </Row>
+                        </Col>
+                      
+                    
+                    </Row>
+                    <Row>
+                    <Col className="text-center">
+                            <ByGoogle />
+                        </Col>
+                        </Row>
+                    </Container>
+
         </div>
     ) 
       

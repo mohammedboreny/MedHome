@@ -7,25 +7,29 @@ import { Container } from '@material-ui/core';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useAuth } from '../../CurrentUserContext';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { json, Link, Navigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const ServiceOrder = () => {
+  const {id,setphone } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    let Storage2 = JSON.parse(localStorage.getItem(id));
+    localStorage.setItem(data.phone, JSON.stringify([data,startDate]));
+    setphone(data.phone);
+    console.log(data.description);
+    console.log(Storage2.email);
+
+    
   }
-  let { id } = useParams();
-  let { direction } = useAuth();
+  
   const [startDate, setStartDate] = useState(new Date());
 
-  const { loggedIn } = useAuth()
-  let x = "";
+  const { loggedIn,directions } = useAuth()
   useEffect(() => {
-    //  x=[direction.coordinates.lat,direction.coordinates.lng]
   
     
-  }, [PlaceMap,useAuth])
+  }, [])
   
 
   return loggedIn ? (
@@ -39,7 +43,12 @@ const ServiceOrder = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Field>
                 <label>Choose Type of Service</label>
-                <select name="cars" id="cars">
+                <select name="cars" id="cars"
+                 {...register("cars",
+                 {
+                   required: false
+                 })}
+                >
                   <option value="electronic">Electricity</option>
                   <option value="air">Air Conditions</option>
                   <option value="garden">Garden Services</option>
@@ -49,7 +58,8 @@ const ServiceOrder = () => {
 <input type="hidden" value={id} name="ID" />
               <Form.Field>
                 <label>Date</label>
-                <DatePicker
+                <DatePicker name='Date'
+                 
                   selected={startDate}
                   onChange={(date) =>
                     setStartDate(date)} />
@@ -57,11 +67,22 @@ const ServiceOrder = () => {
               </Form.Field>
               <Form.Field>
               <label>Phone number</label>
-                <input type="text" name='phone' placeholder='Enter Your phone number' />
+                <input type="text" name='phone'
+                  placeholder='Enter Your phone number'
+                  {...register("phone",
+                    {
+                      required: false
+                    })}
+                      />
               </Form.Field>
               <Form.Field>
               <label>Description</label>
-                <textarea type="text" name='description' placeholder='Enter your massage here' />
+                <textarea type="text"
+                   {...register("description",
+                   {
+                     required: false
+                   })}
+                  name='description' placeholder='Enter your massage here' />
               </Form.Field>
               
 

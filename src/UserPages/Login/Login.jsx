@@ -9,7 +9,7 @@ const Login = () => {
   return loggedIn? (
 
       <div >
-          <Navigate  to ="/"/>
+          <Navigate  to ="/" />
     </div>
   ) : (
       <div >

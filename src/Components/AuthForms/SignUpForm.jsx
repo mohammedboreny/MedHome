@@ -6,15 +6,14 @@ import { useAuth } from '../../CurrentUserContext';
 import { Navigate } from 'react-router-dom';
 
 const SignUpForm = () => {
-    const { login } = useAuth();
+    const { login,idSet } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
         let Storage2 = JSON.parse(localStorage.getItem(data.email));
 
-console.log(Storage2);
         if (Storage2==null) {
             localStorage.setItem(data.email, JSON.stringify(data));
+            idSet(Storage2.email)
             login() 
         }
         else {

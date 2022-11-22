@@ -1,4 +1,4 @@
-# Orange Coding Academy Project (MedHome)
+# (MedHome)
 
 # Summery 
 

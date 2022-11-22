@@ -3,8 +3,11 @@ import { GoogleMap, useLoadScript, MarkerF, Autocomplete } from '@react-google-m
 import "./Map.css"
 import useGeolocation from "./useGeolocation";
 import { useAuth } from "../../CurrentUserContext";
+
+
+
 export default function PlaceMap() {
-  
+
   console.log(process.env.REACT_APP_MAPS_API);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API,
@@ -22,11 +25,10 @@ libraries:['places']
 function Map() {
   const { directions } = useAuth();
   useEffect(() => {
-  
-
-  },[PlaceMap]);
+    sessionStorage.setItem("location", JSON.stringify({lat: location.coordinates.lat, lng: location.coordinates.lng }))
+  },[]);
   const location = useGeolocation();
-  const [stateMap, setstateMap] = useState(/** @type google.maps.MAp */(null));
+  const [stateMap, setstateMap] = useState(/** @type google.maps.Map */(null));
 
  const center={ lat: location.coordinates.lat, lng: location.coordinates.lng 
   }
@@ -39,7 +41,7 @@ return (
       }}
       
     mapContainerClassName="map"
-    options={{
+      options={{
       zoom: false,
       StreetViewPanorama: false,
       mapTypeControl: false,
@@ -48,13 +50,14 @@ return (
     }}
     onLoad={map => setstateMap(map)}
     >
-      {directions(location)}
-    <MarkerF position={center}
+    
+      <MarkerF position={center}
+        draggable={true}
     />
 
 
   </GoogleMap>
-  <button onClick={() => stateMap.panTo(center)} className=" bg-alert">
+  <button onClick={() => stateMap.panTo(center)} className=" btn btn-danger">
     Click To Detect your location
   </button>
   <div>
