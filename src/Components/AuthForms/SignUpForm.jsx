@@ -3,40 +3,42 @@ import { Alert, Col, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { Form, Button } from 'semantic-ui-react';
 import { useAuth } from '../../CurrentUserContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate,useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 
 const SignUpForm = () => {
-    const { login,idSet } = useAuth();
+    const { loggedin,login,idSet } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const nave = useNavigate();
+
     const onSubmit = (data) => {
         let Storage2 = JSON.parse(localStorage.getItem(data.email));
 
-        if (Storage2==null) {
+        if (Storage2 == null) {
             localStorage.setItem(data.email, JSON.stringify(data));
-            idSet(Storage2.email)
-            login() 
+            
             Swal.fire({
                 position: 'center',
                 icon: 'success',
                 title: 'Signed Up succesfully',
                 showConfirmButton: false,
-                timer: 1500
-              })
-        }
+                timer: 4000
+            });
+            nave('/')
+            login();
+            idSet(Storage2.email);
+            
+            }
         else {
             alert("USer Has Already Registered ")
         }
-
-        return login ? (<>
-            <Navigate to="/" /> </>) : (
-            <p> somthing goes wrong </p>)
     }
 
-
-
-    return (
+    return loggedin ? (
+        <div>
+        <Navigate to="/" />
+    </div >):(
         <div>
             <Row className='justify-content-center'>
                 <Col lg={4}  >

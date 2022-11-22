@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useAuth } from '../../CurrentUserContext';
 import { loadGapiInsideDOM } from "gapi-script";
+import { Navigate, redirect, useNavigate } from 'react-router-dom';
+
 import Swal from 'sweetalert2'
 
 
@@ -11,7 +13,8 @@ import Swal from 'sweetalert2'
 const clientID = '1084259004154-f6s449bespfc5otl96o0vkr5qpd7p43j.apps.googleusercontent.com';
 
 function ByGoogle() {
-    const { loggedin, login, idSet,googleuser } = useAuth();
+    const { loggedin, login, idSet, googleuser } = useAuth();
+    const nav=useNavigate()
     // Success and Failure functions
     const onSuccess = (res) => {
         console.log('[Login Success] currentUser', res.profileObj)
@@ -22,13 +25,16 @@ function ByGoogle() {
             icon: 'success',
             title: 'Signed in succesfully',
             showConfirmButton: false,
-            timer: 200,
+            timer: 2000,
             showClass:{
                 popup: 'swal2-show',
                 backdrop: 'swal2-backdrop-show',
                 icon: 'swal2-icon-show'
               }
-          })
+        })
+        nav('/');
+        
+      
 
     }
     const onFailure = (res) => {

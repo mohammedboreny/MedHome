@@ -26,7 +26,7 @@ const ServiceOrder = () => {
       icon: 'success',
       title: 'Order has been saved',
       showConfirmButton: false,
-      timer: 1500
+      timer: 4000
     })
 
 
