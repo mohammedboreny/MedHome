@@ -4,16 +4,31 @@ import { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useAuth } from '../../CurrentUserContext';
 import { loadGapiInsideDOM } from "gapi-script";
+import Swal from 'sweetalert2'
+
 
 // Google auth 2.0 api key 
 const clientID = '1084259004154-f6s449bespfc5otl96o0vkr5qpd7p43j.apps.googleusercontent.com';
 
 function ByGoogle() {
-    const { loggedin, login, idSet } = useAuth();
+    const { loggedin, login, idSet,googleuser } = useAuth();
     // Success and Failure functions
     const onSuccess = (res) => {
         console.log('[Login Success] currentUser', res.profileObj)
+        googleuser();
         login();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Signed in succesfully',
+            showConfirmButton: false,
+            timer: 200,
+            showClass:{
+                popup: 'swal2-show',
+                backdrop: 'swal2-backdrop-show',
+                icon: 'swal2-icon-show'
+              }
+          })
 
     }
     const onFailure = (res) => {

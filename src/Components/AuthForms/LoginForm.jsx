@@ -4,7 +4,9 @@ import { Form, Button } from 'semantic-ui-react';
 import { Col, Row ,Container} from 'react-bootstrap';
 import ByGoogle from './ByGoogle';
 import { useAuth } from '../../CurrentUserContext';
-import { Navigate,useNavigate  } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const nave = useNavigate();
@@ -18,6 +20,13 @@ const LoginForm = () => {
             console.log(Storage2);
             idSet(Storage2.email)
             login();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Welcome back',
+                showConfirmButton: false,
+                timer: 1500
+              })
             nave('/');
 
         }

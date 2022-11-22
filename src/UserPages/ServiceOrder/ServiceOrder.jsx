@@ -7,8 +7,10 @@ import { Container } from '@material-ui/core';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useAuth } from '../../CurrentUserContext';
-import { json, Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2'
+
 
 const ServiceOrder = () => {
   const {id,setphone } = useAuth();
@@ -19,6 +21,14 @@ const ServiceOrder = () => {
     setphone(data.phone);
     console.log(data.description);
     console.log(Storage2.email);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Order has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
 
     
   }

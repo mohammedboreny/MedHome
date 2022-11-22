@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { Form, Button } from 'semantic-ui-react';
 import { useAuth } from '../../CurrentUserContext';
 import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 
 const SignUpForm = () => {
     const { login,idSet } = useAuth();
@@ -15,6 +17,13 @@ const SignUpForm = () => {
             localStorage.setItem(data.email, JSON.stringify(data));
             idSet(Storage2.email)
             login() 
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Signed Up succesfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
         }
         else {
             alert("USer Has Already Registered ")

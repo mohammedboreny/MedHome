@@ -3,7 +3,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import {NavLink} from 'react-router-dom'
-import { useAuth } from '../../CurrentUserContext'
+import { useAuth } from '../../CurrentUserContext';
+import ByGoogleLogOut from '../../Components/AuthForms/ByGoogleLogOut'
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
@@ -16,7 +17,7 @@ const navigation = [
 }
   
 const Header1 = () => {
-  const { logout } = useAuth();
+  const { logout ,googleuser} = useAuth();
   let activeStyle = {
     textDecoration: "underline",
   };
@@ -107,15 +108,24 @@ const Header1 = () => {
                       </Menu.Item>
                
                       <Menu.Item>
-                        {({ active }) => (
+                      {googleuser?
+                        ({ active }) => (
+
+                        
+                          < ByGoogleLogOut active={active} />
+                        )
+                        :
+                        ({ active }) => (
+
                           <NavLink
                             onClick={logout}
-                            to ="/"
+                            to="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
                           </NavLink>
                         )}
+                      
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
