@@ -56,7 +56,7 @@ const Header2 = () => {
                     } to="/" className="text-primary fs-4" >Home </NavLink>
                     <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
-                    } to="/services" className="text-primary fs-4" >Services </NavLink>
+                    } to="/services" className="text-primary fs-4" >Why Us </NavLink>
                   <NavLink style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     } to="/ordernow" className="text-primary fs-4" >Order Now </NavLink>

@@ -13,7 +13,7 @@ const OrdersUser = () => {
     const { id, direction, phone } = useAuth();
     const phoneNum = JSON.parse(localStorage.getItem(phone))
     const info = JSON.parse(localStorage.getItem(id))
-    const locate = JSON.parse(sessionStorage.getItem('location'))
+    const locate = JSON.parse(localStorage.getItem('location'))
 
 
     const rows = [
@@ -46,8 +46,8 @@ const OrdersUser = () => {
                                 <TableCell align="right"> {info.lastName}</TableCell>
                                 <TableCell align="right"></TableCell>
                                 <TableCell align="right"> </TableCell>
-                                <TableCell align="right">{locate.lat}</TableCell>
-                                <TableCell align="right">{locate.lng}</TableCell>
+                                <TableCell align="right">{locate}</TableCell>
+                                <TableCell align="right">{locate}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

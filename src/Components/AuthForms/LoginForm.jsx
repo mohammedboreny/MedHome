@@ -68,17 +68,22 @@ const LoginForm = () => {
                             />
                         </Form.Field>
                         {errors.password && <p className='text-danger'>Password should contain one Capital Letter, one Small Letter and has length between 6 and 15</p>}
-                                <Button type='submit' className='text-white bg-primary'>Submit</Button>
-                                
-                    </Form>
+                                <Row >
+                                    <Col>
+                                <Button type='submit' className='text-white bg-primary'>Login</Button>
+                                </Col>
+                                <Col className='col-4'>
+                            <ByGoogle />
+                        </Col>  
+                                </Row>
+                            </Form>
+                          
                         </Col>
                       
-                    
+                        
                     </Row>
                     <Row>
-                    <Col className="text-center">
-                            <ByGoogle />
-                        </Col>
+                 
                         </Row>
                     </Container>
 

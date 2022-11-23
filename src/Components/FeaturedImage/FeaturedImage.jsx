@@ -12,7 +12,7 @@ const FeaturedImage = () => {
            <Container>
       <Row>
                   <Col  >
-                      <h1 className='text-center m-3'>Here you can find our Services</h1>
+                      <h1 className='text-center m-3'>Here you can find Why to choose us</h1>
                   </Col>
         
               </Row>

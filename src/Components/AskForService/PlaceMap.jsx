@@ -9,6 +9,7 @@ import { useAuth } from "../../CurrentUserContext";
 export default function PlaceMap() {
 
   console.log(process.env.REACT_APP_MAPS_API);
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAPS_API,
 libraries:['places']
@@ -23,12 +24,13 @@ libraries:['places']
 }
 
 function Map() {
+  const location = useGeolocation();
   const { directions } = useAuth();
   useEffect(() => {
-    sessionStorage.setItem("location", JSON.stringify({lat: location.coordinates.lat, lng: location.coordinates.lng }))
-  },[]);
-  const location = useGeolocation();
-  const [stateMap, setstateMap] = useState(/** @type google.maps.Map */(null));
+   localStorage.setItem("location", JSON.stringify({lat: location.coordinates.lat, lng: location.coordinates.lng }))
+  },[PlaceMap]);
+  
+  const [stateMap, setstateMap] = useState(/** @type google.maps.Map */(location));
 
  const center={ lat: location.coordinates.lat, lng: location.coordinates.lng 
   }
@@ -61,7 +63,7 @@ return (
     Click To Detect your location
   </button>
   <div>
-    {JSON.stringify(location)}
+    {JSON.stringify(location.coordinates)}
   </div>
 </>
 );

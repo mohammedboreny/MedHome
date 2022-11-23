@@ -1,12 +1,11 @@
 import React from 'react';
-import { useCookies } from 'react-cookie';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
-const ContactUsForm = () => {
+const ContactUsForm = (props) => {
     // const [cookies, setCookie] = useCookies(['another']);
     const [fName, setfName] = useState('');
     const [email, setemail ]= useState('');
@@ -20,27 +19,14 @@ const ContactUsForm = () => {
         console.log("true");
 
     };
-    
-    // Turning Cookies into array
-    //  const parseCookie = str =>
-    //  str
-    //  .split(';')
-    //  .map(v => v.split('='))
-    //  .reduce((acc, v) => {
-    //    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-    //    return acc;
-    //  }, {});
-    // const test = parseCookie(document.cookie);
-    // console.log(test);
-
-    // end of snippet
      return (
         <div>
             <Container>
                 <Row>
                     <Col sm={12} lg={6}>
-                        <img
-                            src="https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                         <img
+                             className={props.dim}
+                            src={props.img} alt="" />
                     </Col>
                     <Col sm={12} lg={6}>
                         <Form onSubmit={(e)=>handle(e)}>

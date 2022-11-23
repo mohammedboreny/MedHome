@@ -6,10 +6,10 @@ import {NavLink} from 'react-router-dom'
 import { useAuth } from '../../CurrentUserContext';
 import ByGoogleLogOut from '../../Components/AuthForms/ByGoogleLogOut'
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Home', to: '/', type:"NaveLink", current: true },
+    { name: 'Order Now', to: '/ordernow',type:"NaveLink" , current: false },
+    { name: 'Contact', to: '/contactUS', type:"NaveLink",current: false },
+    { name: 'Become A provider', to: '/ServicePro', type:"NaveLink", current: false },
   ]
   
   function classNames(...classes) {
@@ -21,7 +21,7 @@ const Header1 = () => {
   let activeStyle = {
     textDecoration: "underline",
   };
-
+  
   let activeClassName = "underline";
   return (
       <Disclosure as="nav" className="ml-4 bg-white-800">
@@ -139,8 +139,8 @@ const Header1 = () => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={ item.type }
+                  to={item.to}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'

@@ -10,7 +10,7 @@ import Services from './UserPages/Services/ServicesPage';
 import About from './UserPages/About/About';
 import ContactUs from './UserPages/ContactUs/ContactUs';
 import ServicePro from './UserPages/ServiceProvider/ServicePro';
-
+import PlaceHolders from './Components/PlaceHolders/PlaceHolders'
 import './index.css'
 import Login from './UserPages/Login/Login';
 import Signup from './UserPages/Signup/Signup';
@@ -25,7 +25,7 @@ export const AuthenticatedRoutes = () => {
     return (
         <>
         <Header1 />
-   
+   <PlaceHolders/>
         <Routes>
         <Route exact path='/profile' element={<Profile />}></Route>
 
@@ -45,7 +45,7 @@ export const UnauthenticatedRoutes = () => {
     return (
         <div >
         <Header2 />
-        <Hero />
+       < PlaceHolders/>
         <Routes>
         <Route exact path='/ordernow' element={ <ServiceOrder/>}></Route>
             <Route exact path='/' element={<Home />}></Route>

@@ -17,10 +17,7 @@ const ServiceOrder = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     let Storage2 = JSON.parse(localStorage.getItem(id));
-    localStorage.setItem(data.phone, JSON.stringify([data,startDate]));
-    setphone(data.phone);
-    console.log(data.description);
-    console.log(Storage2.email);
+    localStorage.setItem(data.phone, JSON.stringify([data, startDate]));
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -28,6 +25,8 @@ const ServiceOrder = () => {
       showConfirmButton: false,
       timer: 4000
     })
+    setphone(data.phone);
+   
 
 
     
