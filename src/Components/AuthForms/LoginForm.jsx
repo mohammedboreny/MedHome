@@ -41,7 +41,7 @@ const LoginForm = () => {
                 <h1 className='text-center'>Log in</h1>
                 <Container>
             <Row className='justify-content-center'>
-                <Col lg={4}  >
+                <Col lg={6}  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Field>
                             <label>Email</label>
@@ -71,10 +71,13 @@ const LoginForm = () => {
                                 <Row >
                                     <Col>
                                 <Button type='submit' className='text-white bg-primary'>Login</Button>
-                                </Col>
-                                <Col className='col-4'>
-                            <ByGoogle />
+                                <Col className='pt-3' lg={3}>
+                                            <span>Or login with google</span>
+                                            <ByGoogle />
                         </Col>  
+                                    </Col>
+                                    
+                          
                                 </Row>
                             </Form>
                           

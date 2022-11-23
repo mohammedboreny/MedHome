@@ -49,7 +49,7 @@ function ByGoogle() {
     });
 
     return (
-        <div>
+        <div className='pt-2'>
             {/* Google login Component attributes editing */}
             <GoogleLogin
                 clientId={clientID}

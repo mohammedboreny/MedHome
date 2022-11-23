@@ -24,10 +24,12 @@ libraries:['places']
 }
 
 function Map() {
+
   const location = useGeolocation();
+
   const { directions } = useAuth();
   useEffect(() => {
-   localStorage.setItem("location", JSON.stringify({lat: location.coordinates.lat, lng: location.coordinates.lng }))
+    localStorage.setItem("location", JSON.stringify({ lat: location.coordinates.lat, lng: location.coordinates.lng }))
   },[PlaceMap]);
   
   const [stateMap, setstateMap] = useState(/** @type google.maps.Map */(location));
@@ -35,7 +37,8 @@ function Map() {
  const center={ lat: location.coordinates.lat, lng: location.coordinates.lng 
   }
 
-  
+  let locLink=`https://www.google.com/maps/search/?api=1&query=${location.coordinates.lat},${location.coordinates.lng }`
+
 return (
   <>
   <GoogleMap zoom={10}
@@ -61,9 +64,11 @@ return (
   </GoogleMap>
   <button onClick={() => stateMap.panTo(center)} className=" btn btn-danger">
     Click To Detect your location
-  </button>
+    </button>
   <div>
-    {JSON.stringify(location.coordinates)}
+      
+      <a className="btn btn-primary m-3" href={locLink}>Show on google map</a>
+
   </div>
 </>
 );
